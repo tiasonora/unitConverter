@@ -1,0 +1,146 @@
+:root {
+    --dark-bg: #222222;
+    --light-bg: lavender;
+    --light-text: lavender;
+    --highlight: #f4f4f4;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: Inter;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #6943fe;
+    color: white;
+    font-size: 14px;
+    padding: 30px;
+}
+
+#input {
+    width: 100px;
+    height: 80px;
+    background: #6943fe;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #B295FF;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+::placeholder {
+    color: lightgrey;
+}
+
+#convert-btn {
+    width: 100px;
+    height: 40px;
+    background: #ffffff;
+    color: #3D3D3D;
+    font-size: 16px;
+    font-weight: bold;;
+    border: none;
+    border-radius: 5px;
+}
+
+.main {
+    background: #f4f4f4;
+    padding: 10px;
+}
+
+.section {
+    background: var(--light-bg);
+    color: #5A537B;
+    margin: 20px;
+    padding: 5px;
+    border: 2px solid #B295FF;
+    border-radius: 5px;
+}
+
+p {
+    color: #222222;
+}
+
+
+/* toggle switch */
+
+.toggle {
+    display: block;
+    cursor: pointer;
+    height: 25px;
+    width: 45px;
+    border: 3px solid var(--dark-bg);
+    margin-left: auto;
+    margin-bottom: 0.5em;
+    border-radius: 1rem;
+    position: relative;
+    background-color: var(--highlight);
+}
+
+.toggle::after {
+    content: ""; 
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    bottom: 0px;
+    background-color: var(--dark-bg);
+    border-radius: 50%;
+    transition-duration: 0.4s; 
+}
+
+.toggle::before  { 
+   content: "☀️";
+   vertical-align: middle;
+   z-index: 20;
+   position:absolute;
+   font-size: 20px;
+   top: 1px;
+   left: 23px;
+   transition-duration: 0.4s;     
+ } 
+ 
+.dark-mode .toggle::before  { 
+   content: "🌑"; 
+   font-size: 20px;   
+   z-index: 20;
+   position:absolute;
+   top: 1px;
+   left: -1px;
+   transition-duration: 0.4s;       
+ }
+ 
+/* dark class  */
+.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    animation: switchToDark 0.4s linear;
+    animation-fill-mode: forwards;
+}
+
+.dark-mode .toggle {
+    border-color: var(--light-text);
+    background-color: var(--dark-bg)
+}
+
+.dark-mode .toggle::after{
+    content: "";
+    left: 0;
+    background-color: var(--light-text);
+    transition-duration: 0.4s;
+}
+
+@keyframes switchToDark{
+  0%{
+    background-color: var(--light-bg)
+  }
+  100%{
+    background-color: var(--dark-bg)
+  }
+}
